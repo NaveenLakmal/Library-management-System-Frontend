@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import Swal from 'sweetalert2';
 
 
 @Component({
   selector: 'app-view-all-books',
   standalone: true,
-  imports: [HttpClientModule,FormsModule,CommonModule],
+  imports: [HttpClientModule, FormsModule, CommonModule],
   templateUrl: './view-all-books.component.html',
   styleUrl: './view-all-books.component.css'
 })
-export class ViewAllBooksComponent implements OnInit{
+export class ViewAllBooksComponent implements OnInit {
   private http;
-  public bookList:any =[];
-  public selectedBook:any;
+  public bookList: any = [];
+  public selectedBook: any;
 
 
-  constructor(private httpClient:HttpClient){
-    this.http=httpClient;
+  constructor(private httpClient: HttpClient) {
+    this.http = httpClient;
+    this.loadBooks();
   }
   ngOnInit(): void {
-    this.loadBooks();
+    //this.loadBooks();
   }
   loadBooks() {
     this.http.get('http://localhost:8080/book/get').subscribe((data: any) => {
@@ -34,19 +35,42 @@ export class ViewAllBooksComponent implements OnInit{
     });
   }
 
-  deleteBook(){
-    let api="http://localhost:8080/book/"+this.selectedBook.id;
+  deleteBook() {
+    let api = "http://localhost:8080/book/" + this.selectedBook.id;
 
-    this.http.delete(api,{responseType:'text'}).subscribe((responce:string) => {
+    this.http.delete(api, { responseType: 'text' }).subscribe((responce: string) => {
       console.log(responce);
       this.loadBooks();
-      this.selectedBook=null;
+      
+
+      Swal.fire({
+        title: "Deleted!",
+        text: `${this.selectedBook.title} Book is deleted`,
+        icon: "success"
+      });
+      this.selectedBook = null;
     });
   }
 
-  setSelectedBook(book:any){
-    this.selectedBook=book;
-    
+  setSelectedBook(book: any) {
+    this.selectedBook = book;
+
+  }
+
+  saveBook() {
+    let postApi = "http://localhost:8080/book/add";
+    this.http.post(postApi, this.selectedBook).subscribe(data => {
+      console.log("saved!");
+      this.loadBooks();
+      Swal.fire({
+        title: "updated!",
+        text: `${this.selectedBook.title} Book is updated`,
+        icon: "success"
+      });
+      this.selectedBook = [];
+    })
   }
 
 }
+
+
