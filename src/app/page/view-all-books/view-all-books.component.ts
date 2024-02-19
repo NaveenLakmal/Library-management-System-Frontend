@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import Swal from 'sweetalert2';
+import  Swal from 'sweetalert2';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-view-all-books',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule],
+  imports: [HttpClientModule, FormsModule, CommonModule,RouterLink],
   templateUrl: './view-all-books.component.html',
   styleUrl: './view-all-books.component.css'
 })
