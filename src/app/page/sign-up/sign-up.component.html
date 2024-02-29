@@ -1,11 +1,11 @@
-<section class="vh-100 bg-image"
+<!-- <section class="vh-100 bg-image"
   style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6 ">
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-5">
+          <div class="card" style="height: 20%;">
+            <div class="card-body p-4">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
               <form>
@@ -45,7 +45,7 @@
 
                 <div class="col-md-4">
                   <label for="zip" class="form-label">Phone Number</label>
-                  <input type="text" class="form-control" id="zip" placeholder="Phone number" required [(ngModel)]="selectedCountry?.idd.root" [ngModelOptions]="{standalone:true}" >
+                  <input type="text" class="form-control" id="zip" placeholder="Phone number" required [(ngModel)]= "selectedCountry?.idd.suffixes"  [ngModelOptions]="{standalone:true}" >
                   <div class="invalid-feedback">
                     Zip code required.
                   </div>
@@ -70,6 +70,204 @@
 
               </form>
 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Student registration form</h3>
+
+                <!-- <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example1m">First name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example1n">Last name</label>
+                    </div>
+                  </div>
+                </div>
+
+                
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example8" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example8">Address</label>
+                </div> -->
+
+                <!-- <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                  <h6 class="mb-0 me-4">Gender: </h6>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                      value="option1" />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                      value="option2" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                      value="option3" />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+
+                </div> -->
+
+                <!-- <div class="row">
+                  <div class="col-md-6 mb-4">
+
+                    <select class="select">
+                      <option value="1">State</option>
+                      <option value="2">Option 1</option>
+                      <option value="3">Option 2</option>
+                      <option value="4">Option 3</option>
+                    </select>
+
+                  </div>
+                  <div class="col-md-6 mb-4">
+
+                    <select class="select">
+                      <option value="1">City</option>
+                      <option value="2">Option 1</option>
+                      <option value="3">Option 2</option>
+                      <option value="4">Option 3</option>
+                    </select>
+
+                  </div>
+                </div> -->
+
+                <div class="form-outline mb-3">
+                  <label class="form-label" for="form3Example9">Name</label>
+                  <input type="text" id="form3Example9" class="form-control form-control-lg"  [(ngModel)]="userObj.name" [ngModelOptions]="{standalone:true}"/>
+
+                </div>
+
+                <div class="form-outline mb-3">
+                  <label class="form-label" for="form3Example97">Address</label>
+                  <input type="text" id="form3Example97" class="form-control form-control-lg" [(ngModel)]="userObj.address" [ngModelOptions]="{standalone:true}" />
+
+                </div>
+
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example97">Email </label>
+                  <input type="text" id="form3Example97" class="form-control form-control-lg" [(ngModel)]="userObj.email" [ngModelOptions]="{standalone:true}" />
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 ">
+                    <div class="form-outline mb-3">
+                      <label class="form-label" for="form3Example99">User Name</label>
+                      <input type="text" id="form3Example99" class="form-control form-control-lg" [(ngModel)]="userObj.username" [ngModelOptions]="{standalone:true}" />
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-md-8 ">
+                    <div class="form-outline mb-3">
+                      <label class="form-label" for="form3Example99">Password</label>
+                      <input type="text" id="form3Example99" class="form-control form-control-lg" [(ngModel)]="userObj.password" [ngModelOptions]="{standalone:true}" />
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-md-8 ">
+                    <div class="form-outline mb-3">
+                      <label class="form-label" for="form3Example99">Re-Type Password</label>
+                      <input type="text" id="form3Example99" class="form-control form-control-lg" disabled />
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="form-outline ">
+                      <label class="form-label" for="form3Example99">Nic</label>
+                      <input type="text" id="form3Example99" class="form-control form-control-lg" [(ngModel)]="userObj.nic" [ngModelOptions]="{standalone:true}" />
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-lg-6">
+                  <label for="country" class="form-label">Country</label>
+                  <select class="form-select" id="country" required>
+                    <option value="">Choose...</option>
+                    <option *ngFor="let country of countryList" (click)="setSelectedCountry(country)">
+                      {{country.flag}}
+                      {{country.name.common}}</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div><br>
+
+                <div class="col-lg-6">
+                  <label for="zip" class="form-label">Phone Number</label>
+                  <input type="text" class="form-control" id="zip" placeholder="Phone number" required
+                    [(ngModel)]="selectedCountry?.idd.root" [(ngModel)]="userObj.contactNumber" [ngModelOptions]="{standalone:true}">
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="d-flex justify-content-end pt-3">
+                  <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                  <button type="button" (click)="submitForm()" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
