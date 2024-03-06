@@ -4,14 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import  Swal from 'sweetalert2';
 import { RouterLink } from '@angular/router';
+import { NavComponent } from "../../common/nav/nav.component";
 
 
 @Component({
-  selector: 'app-view-all-books',
-  standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule,RouterLink],
-  templateUrl: './view-all-books.component.html',
-  styleUrl: './view-all-books.component.css'
+    selector: 'app-view-all-books',
+    standalone: true,
+    templateUrl: './view-all-books.component.html',
+    styleUrl: './view-all-books.component.css',
+    imports: [HttpClientModule, FormsModule, CommonModule, RouterLink, NavComponent]
 })
 export class ViewAllBooksComponent implements OnInit {
   private http;
@@ -21,10 +22,10 @@ export class ViewAllBooksComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) {
     this.http = httpClient;
-    this.loadBooks();
+    // this.loadBooks();
   }
   ngOnInit(): void {
-    //this.loadBooks();
+    this.loadBooks();
   }
   loadBooks() {
     this.http.get('http://localhost:8080/book/get').subscribe((data: any) => {

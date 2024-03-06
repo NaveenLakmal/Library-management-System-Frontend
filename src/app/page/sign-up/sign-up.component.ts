@@ -53,14 +53,14 @@ export class SignUpComponent {
   setSelectedCountry(country: any) {
     this.selectedCountry = country;
     this.selectedCountryCode=country.idd.root+""+country.idd.suffixes[0];
-    console.log(this.selectedCountryCode);
+    //console.log(this.selectedCountryCode);
     
     //console.log(this.selectedCountry+"hello country");
 
   }
 
   submitForm() {
-    console.log(this.userObj);
+    //console.log(this.userObj);
     this.http.get(`http://localhost:8081/user/is-exist-user/${this.userObj.username}`).subscribe(data => {
       // console.log(data);
       this.isExistsUser = data;
